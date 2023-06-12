@@ -49,14 +49,6 @@ const SetAvatar = () => {
         user.avatarImage = data.image;
         localStorage.setItem("userInfo", JSON.stringify(user));
         navigate("/");
-      } else {
-        toast({
-          title: "Error Setting Avatar",
-          status: "error",
-          duration: 5000,
-          isClosable: true,
-          position: "bottom",
-        });
       }
     }
   };

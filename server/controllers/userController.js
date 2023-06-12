@@ -86,3 +86,21 @@ module.exports.setAvatar = async (req, res, next) => {
     next(error);
   }
 };
+
+//Getting all user details to show
+module.exports.getAllUsers = async (req, res, next) => {
+  try {
+    let myselfID = req.params.id; // MY OWN ID
+    //$ne will select all the ids but not me
+
+    const users = await User.find({ _id: { $ne: myselfID } }).select([
+      "email",
+      "username",
+      "avatarImage",
+      "_id",
+    ]);
+    return res.json(users);
+  } catch (error) {
+    next(error);
+  }
+};
