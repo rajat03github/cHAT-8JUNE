@@ -2,9 +2,13 @@ import React from "react";
 import { Text } from "@chakra-ui/react";
 import styled from "styled-components";
 import { Logout } from "./Logout";
+import ChatInput from "./ChatInput";
+import Messages from "./Messages";
 
 const ChatBoxContainer = ({ currentChat }) => {
-  console.log(currentChat);
+  //Functions
+  const handleSendMessage = async (msg) => {};
+
   return (
     <>
       {currentChat && (
@@ -28,8 +32,8 @@ const ChatBoxContainer = ({ currentChat }) => {
             </div>
             <Logout />
           </div>
-          <div className="chat-messages"></div>
-          <div className="chat-input"></div>
+          <Messages />
+          <ChatInput handleSendMessage={handleSendMessage} />
         </Container>
       )}
     </>
